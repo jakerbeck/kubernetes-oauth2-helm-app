@@ -41,3 +41,4 @@ helm upgrade \
 
 # Special Thanks:
 https://github.com/oauth2-proxy/oauth2-proxy
+https://kubernetes.github.io/ingress-nginx/examples/auth/oauth-external-auth/
