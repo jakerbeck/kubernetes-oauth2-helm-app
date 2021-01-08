@@ -1,13 +1,37 @@
 #!/bin/sh
 
+if [ -z $APP_NAME ]; then
+    APP_NAME="my-app"
+fi
+
+if ! [ -z $OAUTH2_PROXY_CLIENT_ID ]; then
+    SET_OAUTH2_PROXY_CLIENT_ID="--set OAUTH2_PROXY_CLIENT_ID=$OAUTH2_PROXY_CLIENT_ID"
+fi
+
+if ! [ -z $OAUTH2_PROXY_CLIENT_SECRET ]; then
+    SET_OAUTH2_PROXY_CLIENT_SECRET="--set OAUTH2_PROXY_CLIENT_SECRET=$OAUTH2_PROXY_CLIENT_SECRET"
+fi
+
+if ! [ -z $OAUTH2_PROXY_COOKIE_SECRET ]; then
+    SET_OAUTH2_PROXY_COOKIE_SECRET="--set OAUTH2_PROXY_COOKIE_SECRET=$OAUTH2_PROXY_COOKIE_SECRET"
+fi
+
+if ! [ -z $URL ]; then
+    SET_URL="--set URL=$URL"
+fi
+
+if ! [ -z $INGRESS_SECRET_NAME ]; then
+    SET_INGRESS_SECRET_NAME="--set INGRESS_SECRET_NAME=$INGRESS_SECRET_NAME"
+fi
+
 helm upgrade \
     --install \
-    --namespace my-app \
+    --namespace ${APP_NAME} \
     --create-namespace \
-    --set OAUTH2_PROXY_CLIENT_ID=$OAUTH2_PROXY_CLIENT_ID \
-    --set OAUTH2_PROXY_CLIENT_SECRET=$OAUTH2_PROXY_CLIENT_SECRET \
-    --set OAUTH2_PROXY_COOKIE_SECRET=$OAUTH2_PROXY_COOKIE_SECRET \
-    --set url=my-app.example.com
-    --set ingressSecretName=tls-secret
-    my-app \
+    ${SET_OAUTH2_PROXY_CLIENT_ID} \
+    ${SET_OAUTH2_PROXY_CLIENT_SECRET} \
+    ${SET_OAUTH2_PROXY_COOKIE_SECRET} \
+    ${SET_URL} \
+    ${SET_INGRESS_SECRET_NAME} \
+    ${APP_NAME} \
     .
