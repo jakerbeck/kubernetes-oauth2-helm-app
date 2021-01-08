@@ -1,5 +1,5 @@
 # kubernetes-oauth2-helm-app
-A simple application Helm Chart example of an appliction that is secured using Github.  Based on the oauth2-proxy proeject.
+A simple Helm Chart example of an appliction that is secured using Github.  Based on the oauth2-proxy proeject.
 
 
 ## Grossly Oversimplified Architecture
