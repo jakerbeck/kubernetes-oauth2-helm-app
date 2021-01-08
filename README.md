@@ -10,13 +10,13 @@ A simple application Helm Chart example of an appliction that is secured using G
 ```
 
 ## Quick Start
-Clone the repository:
+### Clone the Repository
 ```
 git clone git@github.com:jakerbeck/kubernetes-oauth2-helm-app.git
 cd kubernetes-oauth2-helm-app
 ```
 
-Set Environment Variables (or less securely use `values.yaml`):
+### Set Environment Variables (or less securely use `values.yaml`)
 ```
 APP_NAME="my-application"
 URL=my-app.example.com
@@ -26,7 +26,7 @@ OAUTH2_PROXY_CLIENT_SECRET="2345678910111213141516171819202122232425"
 OAUTH2_PROXY_COOKIE_SECRET=$(openssl rand -hex 16)
 ```
 
-Deploy with Helm:
+### Deploy with Helm
 ```
 helm upgrade \
     --install \
@@ -39,6 +39,29 @@ helm upgrade \
     ${SET_INGRESS_SECRET_NAME} \
     ${APP_NAME} \
     .
+```
+
+### TLS
+Update the `...` with your certificate and key data:
+```
+echo "\
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ${INGRESS_SECRET_NAME}
+  namespace: ${APP_NAME}
+type: Opaque
+stringData:
+  tls.key: |-
+-----BEGIN CERTIFICATE-----
+...
+-----END CERTIFICATE-----
+  tls.crt: |-
+-----BEGIN PRIVATE KEY-----
+...
+-----END PRIVATE KEY-----\
+" | kubectl apply -f -
 ```
 
 ## Special Thanks:
