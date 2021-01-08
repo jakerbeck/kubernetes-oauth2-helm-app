@@ -1,0 +1,6 @@
+---
+# OAUTH2_PROXY_CLIENT_ID: 12345        # Use --set in helm-install.sh for better security
+# OAUTH2_PROXY_CLIENT_SECRET: 12345678 # Use --set in helm-install.sh for better security
+# OAUTH2_PROXY_COOKIE_SECRET: 87654321 # Use --set in helm-install.sh for better security
+# url: my-app.example.com              # Use --set in helm-install.sh for better security
+# ingressSecretName: tls-secret        # Use --set in helm-install.sh for better security
