@@ -1,6 +1,12 @@
 # kubernetes-oauth2-helm-app
 A simple application Helm Chart example of an appliction that is secured using Github.  Based on the oauth2-proxy proeject.
 
+```
+[ Client ] > [ Ingress ] > [ OAuth2 Proxy ] > [ Protected App ] 
+                                  ▼ ▲
+                          [ OAuth2 Provider ]
+```
+
 # Usage
 Clone the repository:
 ```
