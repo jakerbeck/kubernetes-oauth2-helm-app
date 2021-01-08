@@ -11,11 +11,11 @@ cd kubernetes-oauth2-helm-app
 Set Environment Variables (or less securely use `values.yaml`):
 ```
 APP_NAME="my-application"
+URL=my-app.example.com
+INGRESS_SECRET_NAME="tls-secret"
 OAUTH2_PROXY_CLIENT_ID="12345678910111213141"
 OAUTH2_PROXY_CLIENT_SECRET="2345678910111213141516171819202122232425"
 OAUTH2_PROXY_COOKIE_SECRET=$(openssl rand -hex 16)
-URL=my-app.example.com
-INGRESS_SECRET_NAME="tls-secret"
 ```
 
 Deploy with Helm:
