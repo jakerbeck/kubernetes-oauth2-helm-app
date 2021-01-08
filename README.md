@@ -4,9 +4,9 @@ A simple application Helm Chart example of an appliction that is secured using G
 
 ## Grossly Oversimplified Architecture
 ```
-[ Client ] > [ Ingress ] > [ OAuth2 Proxy ] > [ Protected App ] 
-     ▼ ▲                     ▼ ▲
-   [       OAuth2 Provider       ]
+[ Client ] ► [ Ingress ] ► [ OAuth2 Proxy ] ► [ Protected App ] 
+    ▼ ▲                        ▼ ▲
+  [    OAuth2 Provider (Github)    ]
 ```
 
 ## Quick Start
