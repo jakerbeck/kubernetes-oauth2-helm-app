@@ -20,7 +20,17 @@ OAUTH2_PROXY_COOKIE_SECRET=$(openssl rand -hex 16)
 
 Deploy with Helm:
 ```
-./helm-install.sh
+helm upgrade \
+    --install \
+    --namespace ${APP_NAME} \
+    --create-namespace \
+    ${SET_OAUTH2_PROXY_CLIENT_ID} \
+    ${SET_OAUTH2_PROXY_CLIENT_SECRET} \
+    ${SET_OAUTH2_PROXY_COOKIE_SECRET} \
+    ${SET_URL} \
+    ${SET_INGRESS_SECRET_NAME} \
+    ${APP_NAME} \
+    .
 ```
 
 # Special thanks:
