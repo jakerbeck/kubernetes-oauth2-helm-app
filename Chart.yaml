@@ -1,9 +1,9 @@
 apiVersion: v1
-description: My Application
+description: Kubernetes OAuth2 Helm App
 engine: gotpl
 maintainers:
   - name: jakerbeck
-name: my-application
+name: kubernetes-oauth2-helm-app
 sources:
   - https://github.com/jakerbeck/kubernetes-oauth2-helm-app
 version: 0.0.1
