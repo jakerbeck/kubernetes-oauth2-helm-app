@@ -33,11 +33,11 @@ helm upgrade \
     --namespace ${APP_NAME} \
     --create-namespace \
     -f ./values.yaml \
-    ${SET_OAUTH2_PROXY_CLIENT_ID} \
-    ${SET_OAUTH2_PROXY_CLIENT_SECRET} \
-    ${SET_OAUTH2_PROXY_COOKIE_SECRET} \
-    ${SET_URL} \
-    ${SET_INGRESS_SECRET_NAME} \
+    --set OAUTH2_PROXY_CLIENT_ID=${OAUTH2_PROXY_CLIENT_ID} \
+    --set OAUTH2_PROXY_CLIENT_SECRET=${OAUTH2_PROXY_CLIENT_SECRET} \
+    --set OAUTH2_PROXY_COOKIE_SECRET=${OAUTH2_PROXY_COOKIE_SECRET} \
+    --set URL=${URL} \
+    --set INGRESS_SECRET_NAME=${INGRESS_SECRET_NAME} \
     ${APP_NAME} \
     .
 ```
