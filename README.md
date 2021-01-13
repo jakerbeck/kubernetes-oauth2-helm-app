@@ -12,7 +12,7 @@ A Helm Chart example of an appliction that is secured using Github.  Based on th
 ## Quick Start
 #### Clone the Repository
 ```
-git clone git@github.com:jakerbeck/kubernetes-oauth2-helm-app.git
+git clone https://github.com/jakerbeck/kubernetes-oauth2-helm-app.git
 cd kubernetes-oauth2-helm-app
 ```
 
