@@ -11,13 +11,13 @@ A Helm Chart example of an appliction that is secured using Github.  Based on th
 
 ## Quick Start
 #### Clone the Repository
-```
+```shell
 git clone https://github.com/jakerbeck/kubernetes-oauth2-helm-app.git
 cd kubernetes-oauth2-helm-app
 ```
 
 #### Set Environment Variables (or less securely use `values.yaml`)
-```
+```shell
 APP_NAME="my-application"
 URL=my-app.example.com
 INGRESS_SECRET_NAME="tls-secret"
@@ -27,24 +27,24 @@ OAUTH2_PROXY_COOKIE_SECRET=$(openssl rand -hex 16)
 ```
 
 #### Deploy with Helm
-```
+```shell
 helm upgrade \
     --install \
     --namespace ${APP_NAME} \
     --create-namespace \
-    -f ./values.yaml \
     --set OAUTH2_PROXY_CLIENT_ID=${OAUTH2_PROXY_CLIENT_ID} \
     --set OAUTH2_PROXY_CLIENT_SECRET=${OAUTH2_PROXY_CLIENT_SECRET} \
     --set OAUTH2_PROXY_COOKIE_SECRET=${OAUTH2_PROXY_COOKIE_SECRET} \
     --set URL=${URL} \
     --set INGRESS_SECRET_NAME=${INGRESS_SECRET_NAME} \
+    -f ./values.yaml \
     ${APP_NAME} \
     .
 ```
 
 #### TLS
 Update the `...` with your certificate and key data:
-```
+```shell
 echo "\
 ---
 apiVersion: v1
