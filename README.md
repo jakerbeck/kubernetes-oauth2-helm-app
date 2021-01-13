@@ -32,6 +32,7 @@ helm upgrade \
     --install \
     --namespace ${APP_NAME} \
     --create-namespace \
+    -f ./values.yaml \
     ${SET_OAUTH2_PROXY_CLIENT_ID} \
     ${SET_OAUTH2_PROXY_CLIENT_SECRET} \
     ${SET_OAUTH2_PROXY_COOKIE_SECRET} \
@@ -63,6 +64,9 @@ stringData:
 -----END PRIVATE KEY-----\
 " | kubectl apply -f -
 ```
+
+## Email Authentication
+Set a list of emails in values.yaml
 
 ## Special Thanks
 https://github.com/oauth2-proxy/oauth2-proxy
